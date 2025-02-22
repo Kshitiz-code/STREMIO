@@ -88,7 +88,7 @@ public class VideoServiceImpl implements VideoService {
             Files.copy(inputStream, path, StandardCopyOption.REPLACE_EXISTING);
 
 
-            // video meta data
+            // video meta data1
 
             video.setContentType(contentType);
             video.setFilePath(path.toString());
@@ -173,7 +173,8 @@ public class VideoServiceImpl implements VideoService {
 
             System.out.println(ffmpegCmd);
             //file this command
-            ProcessBuilder processBuilder = new ProcessBuilder("/bin/bash", "-c", ffmpegCmd);
+//            ProcessBuilder processBuilder = new ProcessBuilder("/bin/bash", "-c", ffmpegCmd);
+            ProcessBuilder processBuilder = new ProcessBuilder("cmd.exe", "/c", ffmpegCmd);
             processBuilder.inheritIO();
             Process process = processBuilder.start();
             int exit = process.waitFor();
